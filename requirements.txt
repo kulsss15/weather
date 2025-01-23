@@ -1,0 +1,25 @@
+# Core Dependencies
+fastapi
+uvicorn[standard]
+requests
+python-json-logger
+python-dotenv
+pydantic
+pydantic-settings
+
+# Database
+sqlalchemy
+alembic
+psycopg2-binary
+
+# AI/ML
+numpy
+scikit-learn
+pandas
+
+# Development Tools (Optional)
+black
+isort
+flake8
+mypy
+bandit

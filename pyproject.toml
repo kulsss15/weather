@@ -1,0 +1,40 @@
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+skip-string-normalization = true  # Disable string normalization if you prefer single quotes
+
+[tool.isort]
+profile = "black"
+line_length = 88
+known_third_party = ["fastapi", "sqlalchemy", "requests", "numpy"]  # Update based on dependencies
+known_first_party = ["apps", "libs"]  # Update based on project structure
+
+[tool.pylint]
+disable = [
+    "C0111",  # Missing docstring
+    "R0801",  # Duplicate code
+    "W0703",  # Broad except
+]
+max-line-length = 88
+good-names = ["db", "id"]  # Allow shorter variable names for database usage
+
+[tool.mypy]
+python_version = 3.10
+warn_unused_configs = true
+warn_return_any = true
+check_untyped_defs = true
+strict_optional = true
+disallow_untyped_calls = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+show_error_codes = true
+plugins = ["sqlalchemy.ext.mypy.plugin"]  # Include SQLAlchemy plugin for better ORM checks
+
+[tool.commitizen]
+version = "2.42.0"
+name = "cz_conventional_commits"
+version_type = "semver"
+
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
